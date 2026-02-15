@@ -106,6 +106,7 @@ qiime demux summarize \--i-data demux_cow.qza \--o-visualization demux_cow.qzv
  ```
  dos2unix demux.sh
  sbatch demux.sh
+ 23847616
  ```
 
 8.    Denoise
