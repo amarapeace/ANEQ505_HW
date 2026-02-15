@@ -126,6 +126,8 @@ qiime feature-table summarize \--i-table cow_table_dada2.qza \--m-sample-metadat
 qiime feature-table tabulate-seqs \--i-data cow_seqs_dada2.qza \--o-visualization cow_seqs_dada2.qzv
 
 #23853525
+#23858194
+#23858354
 ```
 
 	
