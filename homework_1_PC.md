@@ -142,7 +142,7 @@ Briefly **describe** the key information from each denoising output file:
 3. How long are the reads? 250 for forward reads and 251 for reverse reads
 4. What is the maximum length of all your sequences?
 5. Which sample (not including extraction controls starting with EC) lost the highest % of reads?
-6. Why did you chose to trim or truncate where you did? I didn't trim because all the reads at the beginning for both forward and reverse reads, have Q-score above 30. I truncated at 250 for both forward and reverse reads because up to that point, the median score
+6. Why did you chose to trim or truncate where you did? I didn't trim because all the reads at the beginning for both forward and reverse reads, have Q-score above 30. I truncated at 250 for both forward and reverse reads because up to that point, the median Q-score stayed above Q30.
 
 **To submit your homework from this document:**
 write all of your commands here, then use command+P (for mac) or control+P (for windows) and search Git: commit. click it. then search for Git: Push and click it. go to your github online to check that it pushed correctly. we will check your github for homework credit. 
