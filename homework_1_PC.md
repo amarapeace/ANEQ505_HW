@@ -116,7 +116,7 @@ Fill in the blank to denoise your samples based on what you think should be trim
 ```
 cd /scratch/alpine/$USER/cow/dada2
 
-qiime dada2 denoise-paired \--i-demultiplexed-seqs ../demux/cow_demux.qza \--p-trim-left-f NUMBER \--p-trim-left-r NUMBER \--p-trunc-len-f NUMBER \--p-trunc-len-r NUMBER \--o-representative-sequences cow_seqs_dada2.qza \--o-denoising-stats cow_dada2_stats.qza \--o-table cow_table_dada2.qza
+qiime dada2 denoise-paired \--i-demultiplexed-seqs ../demux/cow_demux.qza \--p-trim-left-f 250 \--p-trim-left-r 250 \--p-trunc-len-f 250 \--p-trunc-len-r 250 \--o-representative-sequences cow_seqs_dada2.qza \--o-denoising-stats cow_dada2_stats.qza \--o-table cow_table_dada2.qza
 
 #Visualize the denoising results:
 qiime metadata tabulate \--m-input-file cow_dada2_stats.qza \--o-visualization cow_dada2_stats.qzv
