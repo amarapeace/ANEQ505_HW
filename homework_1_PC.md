@@ -129,9 +129,9 @@ qiime feature-table tabulate-seqs \--i-data cow_seqs_dada2.qza \--o-visualizatio
 
 	
 Briefly **describe** the key information from each denoising output file:
-1. Representative Sequences: This file presents the DNA sequences of the microbes found in the samples taken. After denoising, it shows 4653 unique sequences with a mean length of 250 base pairs and maximum of 427 base pairs.
-2. Denoising Stats: It shows the performance of the samples during the denoising step. Statistics like, how many reads passed through filter, how many merged, how many removed as chimeras. It tells you the quality of your data. 
-3. Denoised Table: It is a table that shows the abundance of each sequence in the samples. From this table, there are a total of 4653 features, with 
+1. Representative Sequences: This file presents the DNA sequences of the microbes found in the samples after denoising. After denoising, it shows 4653 unique sequences with a mean length of 250 base pairs and maximum of 427 base pairs.
+2. Denoising Stats: It shows the performance of the samples during the denoising step. Statistics like, initial number of reads per sample, how many reads passed through filter, how many merged, how many removed as chimeras. It tells you the quality of your data. 
+3. Denoised Table: It is a table that shows the abundance of each sequence in the samples. From this table, there are a total of 4653 features. The average frequency of reads per sample after denoising is 11115.7.
 
 **Answer the following questions:**  
 1. Where does the median Q-score begin to dip below Q30 for the forward reads and the reverse reads? For the forward reads, it stayed above Q30 throughout. While for reverse reads, it dipped after 250 to 13.
