@@ -106,7 +106,7 @@ qiime demux summarize \--i-data demux_cow.qza \--o-visualization demux_cow.qzv
  ```
  dos2unix demux.sh
  sbatch demux.sh
- #saving this here, delete later 23847616
+
  ```
 
 8.    Denoise
@@ -125,9 +125,6 @@ qiime feature-table summarize \--i-table cow_table_dada2.qza \--m-sample-metadat
 
 qiime feature-table tabulate-seqs \--i-data cow_seqs_dada2.qza \--o-visualization cow_seqs_dada2.qzv
 
-#23853525
-#23858194
-#23858354
 ```
 
 	
@@ -138,10 +135,10 @@ Briefly **describe** the key information from each denoising output file:
 
 **Answer the following questions:**  
 1. Where does the median Q-score begin to dip below Q30 for the forward reads and the reverse reads? For the forward reads, it stayed above Q30. While for reverse reads, it dipped after 250.
-2. What is the mean reads per sample?
-3. How long are the reads? 250 for forward reads and 251 for reverse reads
-4. What is the maximum length of all your sequences?
-5. Which sample (not including extraction controls starting with EC) lost the highest % of reads?
+2. What is the mean reads per sample? 15163.394558
+3. How long are the reads? 251 bp
+4. What is the maximum length of all your sequences? 427
+5. Which sample (not including extraction controls starting with EC) lost the highest % of reads? 2019.3.14.cow.oral.20. Only had 8.39% of reads passing filters
 6. Why did you chose to trim or truncate where you did? I didn't trim because all the reads at the beginning for both forward and reverse reads, have Q-score above 30. I truncated at 250 for both forward and reverse reads because up to that point, the median Q-score stayed above Q30.
 
 **To submit your homework from this document:**
