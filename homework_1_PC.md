@@ -134,12 +134,12 @@ Briefly **describe** the key information from each denoising output file:
 3. Denoised Table
 
 **Answer the following questions:**  
-1. Where does the median Q-score begin to dip below Q30 for the forward reads and the reverse reads? For the forward reads, it stayed above Q30. While for reverse reads, it dipped after 250.
+1. Where does the median Q-score begin to dip below Q30 for the forward reads and the reverse reads? For the forward reads, it stayed above Q30 throughout. While for reverse reads, it dipped after 250 to 13.
 2. What is the mean reads per sample? 15163.394558
 3. How long are the reads? 251 bp
 4. What is the maximum length of all your sequences? 427
-5. Which sample (not including extraction controls starting with EC) lost the highest % of reads? 2019.3.14.cow.oral.20. Only had 8.39% of reads passing filters
-6. Why did you chose to trim or truncate where you did? I didn't trim because all the reads at the beginning for both forward and reverse reads, have Q-score above 30. I truncated at 250 for both forward and reverse reads because up to that point, the median Q-score stayed above Q30.
+5. Which sample (not including extraction controls starting with EC) lost the highest % of reads? 2019.3.14.cow.oral.20. Only 1% of reads passed filters
+6. Why did you chose to trim or truncate where you did? I didn't trim because all the reads at the beginning for both forward and reverse reads, have Q-score above 30. I truncated at 250 for both forward and reverse reads because up to that point, the median Q-score stayed above Q30 for both. After 250, the reverse reads Q-score for the 251st dropped to 13 which is below the accepted benchmark.
 
 **To submit your homework from this document:**
 write all of your commands here, then use command+P (for mac) or control+P (for windows) and search Git: commit. click it. then search for Git: Push and click it. go to your github online to check that it pushed correctly. we will check your github for homework credit. 
