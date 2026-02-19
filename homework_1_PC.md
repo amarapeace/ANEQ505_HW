@@ -129,16 +129,16 @@ qiime feature-table tabulate-seqs \--i-data cow_seqs_dada2.qza \--o-visualizatio
 
 	
 Briefly **describe** the key information from each denoising output file:
-1. Representative Sequences
-2. Denoising Stats
-3. Denoised Table
+1. Representative Sequences: This file presents the DNA sequences of the microbes found in the samples taken. After denoising, it shows 4653 unique sequences with a mean length of 250 base pairs and maximum of 427 base pairs.
+2. Denoising Stats: It shows the performance of the samples during the denoising step. Statistics like, how many reads passed through filter, how many merged, how many removed as chimeras. It tells you the quality of your data. 
+3. Denoised Table: It is a table that shows the abundance of each sequence in the samples. From this table, there are a total of 4653 features, with 
 
 **Answer the following questions:**  
 1. Where does the median Q-score begin to dip below Q30 for the forward reads and the reverse reads? For the forward reads, it stayed above Q30 throughout. While for reverse reads, it dipped after 250 to 13.
 2. What is the mean reads per sample? 15163.394558
 3. How long are the reads? 251 bp
 4. What is the maximum length of all your sequences? 427
-5. Which sample (not including extraction controls starting with EC) lost the highest % of reads? 2019.3.14.cow.oral.20. Only 1% of reads passed filters
+5. Which sample (not including extraction controls starting with EC) lost the highest % of reads? 2019.3.14.cow.oral.20. It lost 84.47% of its reads, so only 15.53% of reads passed the filter.
 6. Why did you chose to trim or truncate where you did? I didn't trim because all the reads at the beginning for both forward and reverse reads, have Q-score above 30. I truncated at 250 for both forward and reverse reads because up to that point, the median Q-score stayed above Q30 for both. After 250, the reverse reads Q-score for the 251st dropped to 13 which is below the accepted benchmark.
 
 **To submit your homework from this document:**
