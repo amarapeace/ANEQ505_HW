@@ -11,3 +11,6 @@ metazoa.com/play/game
 
 sbatch sepp_script.sh
 24137737
+
+module spider qiime
+To check the versions of qiime available to you on alpine
