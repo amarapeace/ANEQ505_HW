@@ -104,7 +104,7 @@ Create a job script to run the phylogenetic tree building. Remember you must sta
 
 Go to OnDemand and create a new text file for your job script
 ```
-nano <YourJobName.sh>
+nano phylogen.sh
 ```
 
 ```
@@ -137,11 +137,11 @@ qiime fragment-insertion sepp \--i-representative-sequences ../dada2/cow_seqs_da
 - submit the job from the terminal
 ```
 #submit the job
-dos2unix phylo.sh
-sbatch phylo.sh
+dos2unix phylogen.sh
+sbatch phylogen.sh
 ```
 We will use this file in the next homework!
-
+24373381
 ### Once this job finishes, copy and paste what the slurm email says here ~={red}(1 point)=~: 
 
 #### for example: 
