@@ -2,7 +2,13 @@ test push from obsidian
 test push from obsidian, week 2
 
 Kings Play Chess On Fine Green Sand
-Kingdom Phylum Class Order Family Genus Species
+1 Kingdom 
+2 Phylum
+3 Class 
+4 Order 
+5 Family 
+6 Genus 
+7 Species
 
 
 greengenes2.ucsd.edu/by-id/2024.09/

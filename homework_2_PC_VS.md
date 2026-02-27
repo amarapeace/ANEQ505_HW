@@ -74,8 +74,11 @@ qiime taxa barplot \--i-table ../dada2/table_nomitochloro_gg2_filtered300.qza \-
 ## Filtered Taxa Bar Plot Questions ~={red}(10 points)=~
 
 **Question 1**: Attach a picture of your taxa bar plot, organized by cow sampling location (body_site) at the level 7 taxonomic level. What general trends do you notice? 
+![[Pasted image 20260227150352.png]]
 
 **_Question 2**: What are the top 2 most abundant bacterial **classes** in the fecal samples? 
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
+d__Bacteria;p__Bacteroidota;c__Bacteroidia
 
 **_Question 3**: What highly abundant ASV is shared between both the udder and skin samples?
 
