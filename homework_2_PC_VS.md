@@ -53,12 +53,12 @@ wget --no-check-certificate https://ftp.microbio.me/greengenes_release/2024.09/2
 
 Classify taxonomy using GreenGenes2 classify the ASVs (takes about 5 mins). ~={red}(1point)=~
 ```
-qiime feature-classifier classify-sklearn \--i-reads ../dada2/cow_seqs_dada2_filtered300.qza \--i-classifier NAME OF CLASSIFIER HERE.qza \--o-classification taxonomy_gg2_filtered.qza
+qiime feature-classifier classify-sklearn \--i-reads ../dada2/cow_seqs_dada2_filtered300.qza \--i-classifier 2024.09.backbone.v4.nb.qza \--o-classification taxonomy_gg2_filtered.qza
 ```
 
 Visualize the taxonomy of your ASVs: (~={red}1point)=~
 ```
-qiime metadata tabulate \--m-input-file NAME OF TAXONOMY FILE.qza \--o-visualization taxonomy_gg2_filtered.qzv
+qiime metadata tabulate \--m-input-file taxonomy_gg2_filtered.qza \--o-visualization taxonomy_gg2_filtered.qzv
 ```
 
 - Filter mitochondria and chloroplast out to generate a filtered feature table, keep only ASVs with a class or lower taxonomy. fill in the blank (--p-exclude) to exclude these DNA. Fill in the blank to include only class level or below classifications. ~={red}(1point)=~
@@ -111,11 +111,14 @@ nano <YourJobName.sh>
 #SBATCH --partition=amilan
 #SBATCH --time=04:00:00
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=YOUR_EMAIL_HERE@colostate.edu
+#SBATCH --mail-user=amara.onwunzo@colostate.edu
 #SBATCH --output=slurm-%j.out
 #SBATCH --qos=normal
 
 #Activate qiime
+
+module purge  
+module load qiime2/2024.10_amplicon
 #Insert the two commands you need to load qiime2
 
 
