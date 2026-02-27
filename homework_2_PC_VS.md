@@ -81,6 +81,7 @@ d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
 d__Bacteria;p__Bacteroidota;c__Bacteroidia
 
 **_Question 3**: What highly abundant ASV is shared between both the udder and skin samples?
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
 
 **_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features?
 
@@ -99,7 +100,7 @@ d__Bacteria;p__Bacteroidota;c__Bacteroidia
 **Question 10**: do the negative/extraction controls (Samples labeled as EC), look like the real samples? Yes or no?
 
 ## Phylogenetic tree ~={red}(1 point)=~
-Create a job script to run the phylogenetic tree building. Remember you must start a new terminal session, navigate to your slurm directory, and then submit the job. You do NOT need to start any other interactive sessions.This job will take about an hour. 
+Create a job script to run the phylogenetic tree building. Remember you must start a new terminal session, navigate to your slurm directory, and then submit the job. You do NOT need to start any other interactive sessions. This job will take about an hour. 
 
 Go to OnDemand and create a new text file for your job script
 ```
@@ -130,14 +131,14 @@ wget --no-check-certificate -P ../tree https://ftp.microbio.me/greengenes_releas
 
 
 #Command
-qiime fragment-insertion sepp \--i-representative-sequences ../dada2/Your_FILTERED_RepresentativeSequencesFile.qza \--i-reference-database ../tree/2022.10.backbone.sepp-reference.qza \--o-tree ../tree/tree_gg2.qza \--o-placements ../tree/tree_placements_gg2.qza
+qiime fragment-insertion sepp \--i-representative-sequences ../dada2/cow_seqs_dada2_filtered300.qza \--i-reference-database ../tree/2022.10.backbone.sepp-reference.qza \--o-tree ../tree/tree_gg2.qza \--o-placements ../tree/tree_placements_gg2.qza
 ```
 
 - submit the job from the terminal
 ```
 #submit the job
-dos2unix YourJobName.sh
-sbatch YourJobName.sh
+dos2unix phylo.sh
+sbatch phylo.sh
 ```
 We will use this file in the next homework!
 
