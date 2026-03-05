@@ -92,6 +92,7 @@ d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
 **Question 7**: what is the difference between these two flags? 
 --p-exclude mitochondria,chloroplast,sp004296775 \
 --p-include c__ \
+The first one lists the things to be excluded while the second one says to include only those that have taxa up to class level
 
 **Question 8**: do the positive controls look the same as each other? Yes or No?
 
@@ -113,7 +114,7 @@ nano phylogen.sh
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=amilan
-#SBATCH --time=04:00:00
+#SBATCH --time=20:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=amara.onwunzo@colostate.edu
 #SBATCH --output=slurm-%j.out
@@ -141,7 +142,7 @@ dos2unix phylogen.sh
 sbatch phylogen.sh
 ```
 We will use this file in the next homework!
-24373381
+24454144
 ### Once this job finishes, copy and paste what the slurm email says here ~={red}(1 point)=~: 
 
 #### for example: 
