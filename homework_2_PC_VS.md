@@ -77,28 +77,29 @@ qiime taxa barplot \--i-table ../dada2/table_nomitochloro_gg2_filtered300.qza \-
 ![[Pasted image 20260227150352.png]]
 
 **_Question 2**: What are the top 2 most abundant bacterial **classes** in the fecal samples? 
-d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
-d__Bacteria;p__Bacteroidota;c__Bacteroidia
+Bacteroidia and Clostridia
 
 **_Question 3**: What highly abundant ASV is shared between both the udder and skin samples?
 d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
+Faecousia sp000434635
 
 **_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features?
 
 **Question 5**: do all samples contain archaea as well?
 
-**Question 6**: why do we filter out sp004296775?
+**Question 6**: why do we filter out sp004296775? Because we are uncertain of its taxonomic status.
 
 **Question 7**: what is the difference between these two flags? 
 --p-exclude mitochondria,chloroplast,sp004296775 \
 --p-include c__ \
-The first one lists the things to be excluded while the second one says to include only those that have taxa up to class level
+The first one (-exclude) filters out records that have the strings of text following the exclude flag (mitochondria,chloroplast,sp004296775) 
+The second one (--p-include c__ \ ) says to include only the records that have taxa up to class level.
 
-**Question 8**: do the positive controls look the same as each other? Yes or No?
+**Question 8**: do the positive controls look the same as each other? Yes or No? Yes
 
-**Question 9**: Do the negative/extraction controls (Samples labeled as EC), look like the positive controls? Yes or no? 
+**Question 9**: Do the negative/extraction controls (Samples labeled as EC), look like the positive controls? Yes or no? No
 
-**Question 10**: do the negative/extraction controls (Samples labeled as EC), look like the real samples? Yes or no?
+**Question 10**: do the negative/extraction controls (Samples labeled as EC), look like the real samples? Yes or no? No
 
 ## Phylogenetic tree ~={red}(1 point)=~
 Create a job script to run the phylogenetic tree building. Remember you must start a new terminal session, navigate to your slurm directory, and then submit the job. You do NOT need to start any other interactive sessions. This job will take about an hour. 
