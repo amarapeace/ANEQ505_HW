@@ -74,7 +74,7 @@ qiime taxa barplot \--i-table ../dada2/table_nomitochloro_gg2_filtered300.qza \-
 ## Filtered Taxa Bar Plot Questions ~={red}(10 points)=~
 
 **Question 1**: Attach a picture of your taxa bar plot, organized by cow sampling location (body_site) at the level 7 taxonomic level. What general trends do you notice? 
-There is a lot of similarity of taxa within the body site groups. Skin and fecal samples have very high alpha diversity, followed by udder samples. The control have very few taxa (which is good).
+There is a lot of similarity of taxa within the body site groups. Skin and fecal samples have very high alpha diversity, followed by udder samples. The control have very few taxa (which is good). I see that the skin and udder samples share a lot of taxa in common too. Nasal and oral share some taxa in common but not as much as skin and udder.
 
 ![[Pasted image 20260227150352.png]]
 
@@ -82,15 +82,16 @@ There is a lot of similarity of taxa within the body site groups. Skin and fecal
 Bacteroidia and Clostridia
 
 **_Question 3**: What highly abundant ASV is shared between both the udder and skin samples?
-d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
-Faecousia sp000434635
 d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Oscillospirales;f__Oscillospiraceae_88309;g__Faecousia;s__Faecousia sp000434635
 
-**_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features? Skin and fecal samples. Followed by udder
+**_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features? 
+Skin and fecal samples. Followed by udder
 
-**Question 5**: do all samples contain archaea as well? No
+**Question 5**: do all samples contain archaea as well? 
+No
 
-**Question 6**: why do we filter out sp004296775? Because we are uncertain of its taxonomic status. It's another form of chloroplast.
+**Question 6**: why do we filter out sp004296775? 
+Because we are uncertain of its taxonomic status. It's another form of chloroplast.
 
 **Question 7**: what is the difference between these two flags? 
 --p-exclude mitochondria,chloroplast,sp004296775 \
@@ -98,11 +99,14 @@ d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Oscillospirales;f__Osc
 The first one (-exclude) filters out records from the table, that have the strings of text following the exclude flag which are unwanted taxa (mitochondria,chloroplast,sp004296775) 
 The second one (--p-include c__ \ ) says to include only the records that have taxa classification at least up to class level.
 
-**Question 8**: do the positive controls look the same as each other? Yes or No? Yes
+**Question 8**: do the positive controls look the same as each other? Yes or No? 
+Yes
 
-**Question 9**: Do the negative/extraction controls (Samples labeled as EC), look like the positive controls? Yes or no? No
+**Question 9**: Do the negative/extraction controls (Samples labeled as EC), look like the positive controls? Yes or no? 
+No
 
-**Question 10**: do the negative/extraction controls (Samples labeled as EC), look like the real samples? Yes or no? No
+**Question 10**: do the negative/extraction controls (Samples labeled as EC), look like the real samples? Yes or no? 
+No
 
 ## Phylogenetic tree ~={red}(1 point)=~
 Create a job script to run the phylogenetic tree building. Remember you must start a new terminal session, navigate to your slurm directory, and then submit the job. You do NOT need to start any other interactive sessions. This job will take about an hour. 
@@ -146,7 +150,6 @@ dos2unix phylogen.sh
 sbatch phylogen.sh
 ```
 We will use this file in the next homework!
-24454144
 ### Once this job finishes, copy and paste what the slurm email says here ~={red}(1 point)=~: 
 
 #### for example: 
