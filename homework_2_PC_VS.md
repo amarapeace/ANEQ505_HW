@@ -85,7 +85,7 @@ Faecousia sp000434635
 
 **_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features?
 
-**Question 5**: do all samples contain archaea as well?
+**Question 5**: do all samples contain archaea as well? No, they are present in skin and udder samples but not in everything
 
 **Question 6**: why do we filter out sp004296775? Because we are uncertain of its taxonomic status.
 
@@ -147,14 +147,16 @@ We will use this file in the next homework!
 ### Once this job finishes, copy and paste what the slurm email says here ~={red}(1 point)=~: 
 
 #### for example: 
-Job ID: 24289371  
-Cluster: alpine  
-User/Group: [lindsval@colostate.edu](mailto:lindsval@colostate.edu)/[lindsvalpgrp@colostate.edu](mailto:lindsvalpgrp@colostate.edu)  
-State: TIMEOUT (exit code 0)  
-Nodes: 1  
-Cores per node: 8  
-CPU Utilized: 03:57:54  
-CPU Efficiency: 12.37% of 1-08:03:52 core-walltime  
-Job Wall-clock time: 04:00:29  
-Memory Utilized: 6.55 GB  
-Memory Efficiency: 21.83% of 30.00 GB (3.75 GB/core)
+ob ID: 24454144
+Cluster: alpine
+User/Group: c837102365@colostate.edu/c837102365pgrp@colostate.edu
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 8
+
+-------- CPU Metrics --------
+CPU Utilized: 03:15:14
+CPU Efficiency: 11.97% of 1-03:10:24 core-walltime
+Job Wall-clock time: 03:23:48
+Memory Utilized: 8.56 GiB
+Memory Efficiency: 28.52% of 30.00 GiB (3.75 GiB/core)
