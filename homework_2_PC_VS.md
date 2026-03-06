@@ -74,6 +74,7 @@ qiime taxa barplot \--i-table ../dada2/table_nomitochloro_gg2_filtered300.qza \-
 ## Filtered Taxa Bar Plot Questions ~={red}(10 points)=~
 
 **Question 1**: Attach a picture of your taxa bar plot, organized by cow sampling location (body_site) at the level 7 taxonomic level. What general trends do you notice? 
+
 ![[Pasted image 20260227150352.png]]
 
 **_Question 2**: What are the top 2 most abundant bacterial **classes** in the fecal samples? 
@@ -82,8 +83,9 @@ Bacteroidia and Clostridia
 **_Question 3**: What highly abundant ASV is shared between both the udder and skin samples?
 d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483
 Faecousia sp000434635
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Oscillospirales;f__Oscillospiraceae_88309;g__Faecousia;s__Faecousia sp000434635
 
-**_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features?
+**_Question 4**: Which samples (still sorted by body_site) have higher alpha diversity in terms of observed features? Skin and fecal samples. Followed by udder
 
 **Question 5**: do all samples contain archaea as well? No, they are present in skin and udder samples but not in everything
 
