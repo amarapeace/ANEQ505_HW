@@ -72,7 +72,8 @@ qiime diversity alpha-group-significance \
 ## Homework questions ~={red}(10 points)=~
 
 1. what is the name of the file you needed to use to figure out what min and max depths to use to generate the alpha rarefaction plot? (Hint: which file contains the sequencing depths for each sample) 
-2cow_table_dada2_filtered300.qzv
+
+cow_table_dada2_filtered300.qzv
 
 2. what did you choose for the rarefaction depth (the input for core metrics -p-sampling-depth flag)? why? 
 
@@ -84,7 +85,7 @@ Fecal samples have the highest. Nasal samples have the lowest with exception of 
 
 4. What is the main difference between Faiths PD and Shannons alpha diversity metrics? 
  
-Faiths PD measures diversity using phylogenetic relationships between organisms while Shannons do not use phylogenetic relationship.  
+Faiths PD measures diversity using phylogenetic relationships between organisms while Shannons measures diversity based on richness and evenness and do not use phylogenetic relationship.  
 
 5. Which diversity metrics produced by the core-metrics pipeline require phylogenetic information? 
 
@@ -99,9 +100,9 @@ Fecal and skin. They are significantly different based on Kruskal-Wallis pairwis
 Yes, there are groupings observed in the beta diversity plots. There are clusters based on body site. Nasal and oral samples cluster together while skin and udder samples cluster together. Fecal samples are distinct on their own.
 
 8. Why do you think these samples are grouping together? 
- The samples clustering together come from body sites that are close together and share similar microbial communities. For instance, nasal and oral samples are close together and are associated with upper respiratory functions. Also skin and udder are external body surfaces.
+ The samples clustering together come from body sites that are close together and share similar microbial communities due to the environment, nutrients, oxygen levels, and function. For instance, nasal and oral samples are close together and are associated with upper respiratory functions. Also skin and udder are external body surfaces.
 
-9. What test can you run to determine if the groups are significantly different?PERMANOVA
+9. What test can you run to determine if the groups are significantly different?PERMANOVA. To test whether microbial communities differ significantly between groups using beta diversity distance matrices.
 
 10. What command would you use to run that test?
 
