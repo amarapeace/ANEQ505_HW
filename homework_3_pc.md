@@ -42,7 +42,7 @@ qiime diversity alpha-rarefaction \--i-table dada2/cow_table_dada2_filtered300.q
 ### Run Core Metrics ~={red}(1 point)=~
 
 ```
-qiime diversity core-metrics-phylogenetic \--i-table INSERT FILTERED TABLE HERE \--i-phylogeny INSERT FILE HERE \--m-metadata-file INSERT FILE HERE \--p-sampling-depth INSERT SEQ DEPTH HERE \--output-dir core_metrics_results
+qiime diversity core-metrics-phylogenetic \--i-table dada2/cow_table_dada2_filtered300.qza \--i-phylogeny tree/tree_gg2.qza \--m-metadata-file metadata/cow_metadata.txt \--p-sampling-depth 1500 \--output-dir core_metrics_results
 ```
 
 
@@ -77,7 +77,7 @@ cow_table_dada2_filtered300.qzv
 
 2. what did you choose for the rarefaction depth (the input for core metrics -p-sampling-depth flag)? why? 
 
-3000 reads. Because this depth retains most of the samples. Looking at the rarefaction curves too, the graph plateaus around that depth.
+1500 reads. Because this depth retains most of the samples. Looking at the rarefaction curves too, the graph plateaus around that depth.
 
 3. Which cow body location had more observed features? Which has the lowest? 
 
