@@ -35,7 +35,7 @@ module load qiime2/2024.10_amplicon
 ```
 #go to the cow directory
 
-qiime diversity alpha-rarefaction \--i-table dada2/cow_table_dada2_filtered300.qza \--m-metadata-file metadata/cow_metadata.txt \--o-visualization alpha_rarefaction_curves_16S.qzv \--p-min-depth ADD MIN RAREFACTION DEPTH \--p-max-depth ADD MAX RAREFACTION DEPTH
+qiime diversity alpha-rarefaction \--i-table dada2/cow_table_dada2_filtered300.qza \--m-metadata-file metadata/cow_metadata.txt \--o-visualization alpha_rarefaction_curves_16S.qzv \--p-max-depth 10000
 ```
 
 
@@ -77,7 +77,7 @@ cow_table_dada2_filtered300.qzv
 
 2. what did you choose for the rarefaction depth (the input for core metrics -p-sampling-depth flag)? why? 
 
-1500 reads. Because this depth retains most of the samples. Looking at the rarefaction curves too, the graph plateaus around that depth.
+3000 reads. Because this depth retains most of the samples. Looking at the rarefaction curves too, the graph plateaus around that depth.
 
 3. Which cow body location had more observed features? Which has the lowest? 
 
