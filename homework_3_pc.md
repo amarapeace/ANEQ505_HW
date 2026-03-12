@@ -55,7 +55,15 @@ qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics_resul
 - generate a plot to visualize faith's PD ~={red}(2 points)=~
 ```
 ## insert the entire code chunk for generating this visualization 
-
+qiime diversity alpha-group-significance \
+--i-alpha-diversity core_metrics_results/shannon_vector.qza \
+--m-metadata-file metadata/cow_metadata.txt \
+--o-visualization core_metrics_results/shannon_statistics.qzv  
+  
+qiime diversity alpha-group-significance \
+--i-alpha-diversity core_metrics_results/faith_pd_vector.qza \
+--m-metadata-file metadata/cow_metadata.txt \
+--o-visualization core_metrics_results/faiths_pd_statistics.qzv
 
 ```
 
@@ -64,11 +72,11 @@ qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics_resul
 ## Homework questions ~={red}(10 points)=~
 
 1. what is the name of the file you needed to use to figure out what min and max depths to use to generate the alpha rarefaction plot? (Hint: which file contains the sequencing depths for each sample) cow_table_dada2_filtered300.qzv
-2. what did you choose for the rarefaction depth (the input for core metrics -p-sampling-depth flag)? why? 
-3. Which cow body location had more observed features? Which has the lowest? Fecal samples have the highest. Nasal samples have the lowest.
-4. What is the main difference between Faiths PD and Shannons alpha diversity metrics? Faiths PD uses phylogenetic relationships while Shannons do not use phylogenetic relationship.  
+2. what did you choose for the rarefaction depth (the input for core metrics -p-sampling-depth flag)? why? 1500 reads. Because this depth retains most of the samples. Looking at the rarefaction curves too, the graph plateaus around that depth.
+3. Which cow body location had more observed features? Which has the lowest? Fecal samples have the highest. Nasal samples have the lowest with exception of the controls.
+4. What is the main difference between Faiths PD and Shannons alpha diversity metrics? Faiths PD measures diversity using phylogenetic relationships between organisms while Shannons do not use phylogenetic relationship.  
 5. Which diversity metrics produced by the core-metrics pipeline require phylogenetic information? Faith’s Phylogenetic Diversity (Faith’s PD), Unweighted UniFrac, and Weighted UniFrac
-6. Which two body sites have the highest Faiths PD alpha diversity?  Are the groups significantly different? Fecal and skin. They are significantly different based on Kruskal-Wallis pairwise test with p-value 0.0008
+6. Which two body sites have the highest Faiths PD alpha diversity?  Are the groups significantly different? Fecal and skin. They are significantly different based on Kruskal-Wallis pairwise test with p-value 0.000182
 7. Does it seem like there are any groupings in the beta diversity? What are the groupings? 
 8. Why do you think these samples are grouping together? 
 9. What test can you run to determine if the groups are significantly different?PERMANOVA
@@ -77,6 +85,20 @@ qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics_resul
 ```
 #insert command for running the test you suggest from question 7
 
+#permanova
 
+qiime diversity beta-group-significance \
+--i-distance-matrix core_metrics_results/unweighted_unifrac_distance_matrix.qza \
+--m-metadata-file metadata/cow_metadata.txt \
+--m-metadata-column body_site \
+--p-method permanova \
+--o-visualization core_metrics_results/unweighted_unifrac_body_site_metric.qzv
 
+#braycurtis
+qiime diversity beta-group-significance \
+--i-distance-matrix core_metrics_results/bray_curtis_distance_matrix.qza \
+--m-metadata-file metadata/cow_metadata.txt \
+--m-metadata-column body_site \
+--p-method permanova \
+--o-visualization core_metrics_results/bray_curtis_body_site_metric.qzv
 ```
