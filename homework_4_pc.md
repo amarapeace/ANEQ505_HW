@@ -167,6 +167,9 @@ qiime sample-classifier classify-samples \--i-table rarefied_table_no_controls_L
 
 ### **Questions:**
 1. Why might removing controls be important before downstream analysis? 
+
 2. what 2 features that are high in fecal samples? 
+
 3. what are 2 features that are low in nasal?
+
 4. what is the accuracy of your model, and if the accuracy of the classifier is high, what does that suggest about the microbial compositions of each site?
