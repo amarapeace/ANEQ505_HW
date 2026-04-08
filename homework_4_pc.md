@@ -45,7 +45,7 @@ cow_r
 
 **What directory should the cow_HW4_r.Rmd file go in? ~={red}(1 point)=~**
 
-- *Write the directory here:*
+- *04_code:*
 #### Statistical analysis and figure generation in R 
 
 - Now that we have set up the correct file structure and put our files in the correct directories, we can start our cow R analysis. 
