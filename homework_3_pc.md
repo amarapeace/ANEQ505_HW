@@ -37,7 +37,7 @@ module load qiime2/2024.10_amplicon
 
 qiime diversity alpha-rarefaction \--i-table dada2/cow_table_dada2_filtered300.qza \--m-metadata-file metadata/cow_metadata.txt \--o-visualization alpha_rarefaction_curves_16S.qzv \--p-max-depth 10000
 ```
-use 3300
+use 11000
 
 ### Run Core Metrics ~={red}(1 point)=~
 
