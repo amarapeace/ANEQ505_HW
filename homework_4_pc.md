@@ -117,7 +117,7 @@ qiime feature-table filter-features \--i-table table_5k.qza \--p-min-frequency 5
 - We will collapse to the genus level to make it easier to interpret the results. (Hint: We used 7 for species, so think about which number you would use for genus.)
 
 ```
-qiime taxa collapse \--i-table table_5k_abund.qza \--i-taxonomy ../taxonomy/taxonomy_gg2_filtered.qza \--p-level 6 \--o-collapsed-table table_5k_abund_6.qza
+qiime taxa collapse \--i-table table_5k_abund.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--p-level 6 \--o-collapsed-table table_5k_abund_6.qza
 ```
 
 
