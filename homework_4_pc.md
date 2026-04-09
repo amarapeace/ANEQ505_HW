@@ -104,7 +104,7 @@ qiime feature-table filter-samples \--i-table ../dada2/table_nomitochloro_gg2_fi
 - Navigate into the ancombc2 directory
 - Choose the min frequency for sample filtering:
 ```
-qiime feature-table filter-samples \--i-table table_nomitochlorocontrols_gg2_filtered300.qza \--p-min-frequency 50 \--o-filtered-table table_5k.qza
+qiime feature-table filter-samples \--i-table table_nomitochlorocontrols_gg2_filtered300.qza \--p-min-frequency 5000 \--o-filtered-table table_5k.qza
 ```
 
 **Filter out low abundance and low prevalence ASVs ~={red}(1 point)=~**
