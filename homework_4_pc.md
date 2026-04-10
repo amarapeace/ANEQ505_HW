@@ -137,18 +137,19 @@ qiime composition ancombc2-visualizer \--i-data ancombc2_results_bodysite_genus.
 ```
 
 ## Homework questions: (~={red}5 POINTS=~)
-1. Describe one way to get data from your qiime2 outputs into a format that can be used for R. 
+1. Describe one way to get data from your qiime2 outputs into a format that can be used for R. Download them from on alpine and unzip them. In our particular case. Download them from the export directory on alpine, unzip them via powershell or just extract the files like you can do to a zipped file on PC
 
 2. Which body site appeared most distinct in the taxa bar plot, meaning it was not similar to at least one of the other body sites? Explain why that site looks different. 
+The fecal samples appeared most distinct in the taxa bar plot. This is because the gut microbiome is specialized and dominated by anaerobic bacteria, which differ from microbes found on external body sites. As a result, the microbial composition of fecal samples is significantly different from other body sites. 
 
 3. When generating the filtered table for ANCOM-BC2, what value did you choose for `--p-min-frequency`? Which core metrics parameter should this match, and why do these values need to be the same? (Report your core metrics value here:   5000 )
-It should match the number I rarefied with
+It should match the number I rarefied with. This is because both steps standardize sequencing depth across samples. Using the same threshold ensures consistency across analyses and allows us to compare the same set of samples. 
 
 4. Why do we filter out samples with low frequency and low abundance ASVs?
-
+Removing low-frequency samples helps reduce noise from poorly sequenced samples, while removing low-abundance ASVs eliminates rare taxa that may represent sequencing artifacts. Overall, this improves statistical power, reduces false positives, and leads to more reliable biological interpretations.
 
 5. What was the most enriched genus in skin compared to fecal, and what was the most depleted genus in skin compared to fecal (make sure adjusted p is set to less than 0.05)? 
-	
+	most enriched genus in skin compared to fecal samples is Atopostipes, while the most depleted genus in skin relative to fecal samples is Streptococcus
 
 ## Extra credit~={orange} (3 points)=~ generate a classification model to see how well we can predict cow body site
 
