@@ -175,6 +175,6 @@ Removing controls is important because they can introduce patterns that reflect 
 2. what 2 features that are high in fecal samples? 
 Cryptobacteroides sp902787255 and Faecousia sp000434635.
 3. what are 2 features that are low in nasal?
-Parabacteroides_B_862066 and Ruoffia.
+Sporosarcina, Flaviflexus huanghaiensis, Ruoffia and Alistipes_A_871400 finegoldii.
 4. what is the accuracy of your model, and if the accuracy of the classifier is high, what does that suggest about the microbial compositions of each site?
-The model has an overall accuracy of 0.882353 (~88.23%), this higher than the baseline accuracy of 0.352941. This strong performance indicates that the microbial communities at each body site are distinct enough for the classifier to tell them apart. The results show that each body site has it's own unique characteristic.
+The model has an overall accuracy of 0.809 (~80.9%), this higher than the baseline accuracy of 0.2857. This strong performance indicates that the microbial communities at each body site are distinct enough for the classifier to tell them apart. The results show that each body site has it's own unique characteristic.
