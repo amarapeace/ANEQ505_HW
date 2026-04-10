@@ -143,10 +143,10 @@ qiime composition ancombc2-visualizer \--i-data ancombc2_results_bodysite_genus.
 The fecal samples appeared most distinct in the taxa bar plot. This is because the gut microbiome is specialized and dominated by anaerobic bacteria, which differ from microbes found on external body sites. As a result, the microbial composition of fecal samples is significantly different from other body sites. 
 
 3. When generating the filtered table for ANCOM-BC2, what value did you choose for `--p-min-frequency`? Which core metrics parameter should this match, and why do these values need to be the same? (Report your core metrics value here:   5000 )
-It should match the number I rarefied with. This is because both steps standardize sequencing depth across samples. Using the same threshold ensures consistency across analyses and allows us to compare the same set of samples. 
+It should match the number I rarefied with because both steps standardize sequencing depth across samples. Using the same threshold gives consistency across analyses and allows us to compare the same set of samples. 
 
 4. Why do we filter out samples with low frequency and low abundance ASVs?
-Removing low-frequency samples helps reduce noise from poorly sequenced samples, while removing low-abundance ASVs eliminates rare taxa that may represent sequencing artifacts. Overall, this improves statistical power, reduces false positives, and leads to more reliable biological interpretations.
+Just as the names imply, filtering out low-frequency samples removes noise from poorly sequenced data, while excluding low-abundance ASVs helps eliminate rare taxa that may just be sequencing artifacts. It will reduce false positives and give better biological interpretations. .
 
 5. What was the most enriched genus in skin compared to fecal, and what was the most depleted genus in skin compared to fecal (make sure adjusted p is set to less than 0.05)? 
 	most enriched genus in skin compared to fecal samples is Atopostipes, while the most depleted genus in skin relative to fecal samples is Streptococcus
@@ -170,9 +170,10 @@ qiime sample-classifier classify-samples \--i-table rarefied_table_no_controls_L
 
 ### **Questions:**
 1. Why might removing controls be important before downstream analysis? 
-
+Removing controls is important because they can introduce patterns that reflect technical artifacts rather than true biological differences. Including them may add noise or even reduce model accuracy.
 2. what 2 features that are high in fecal samples? 
-
+Cryptobacteroides sp902787255 and Faecousia sp000434635.
 3. what are 2 features that are low in nasal?
-
+Parabacteroides_B_862066 and Ruoffia.
 4. what is the accuracy of your model, and if the accuracy of the classifier is high, what does that suggest about the microbial compositions of each site?
+The model has an overall accuracy of 0.882353 (~88.23%), this higher than the baseline accuracy of 0.352941. This strong performance indicates that the microbial communities at each body site are distinct enough for the classifier to tell them apart. The results show that each body site has it's own unique characteristic.
