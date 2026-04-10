@@ -138,19 +138,19 @@ qiime composition ancombc2-visualizer \--i-data ancombc2_results_bodysite_genus.
 
 ## Homework questions: (~={red}5 POINTS=~)
 1. Describe one way to get data from your qiime2 outputs into a format that can be used for R. Download them from on alpine and unzip them. 
-In our particular case. We downloaded them (alpha and beta-diversity directories) from the export directory on alpine, unzipped them via powershell or just extracting the files like you can do to a compressed zipped file on PC. Then put them in the appropriate folders for use in R.
+In our particular case. We downloaded them (alpha and beta-diversity directories) from the export directory on alpine, unzipped them via powershell or just extracting the files like you can do to a compressed zipped file on PC. Then put them in the appropriate folders for use in R. For the tabulated results, export as tsv and read into R.
 
-3. Which body site appeared most distinct in the taxa bar plot, meaning it was not similar to at least one of the other body sites? Explain why that site looks different. 
+2. Which body site appeared most distinct in the taxa bar plot, meaning it was not similar to at least one of the other body sites? Explain why that site looks different. 
 The fecal samples appeared most distinct in the taxa bar plot. This is expected since the gut microbiome is internal and anaerobic. So the kind of microbes in it should differ from microbes found on external body sites. As a result, the microbial composition of fecal samples is significantly different from other body sites. 
 
 3. When generating the filtered table for ANCOM-BC2, what value did you choose for `--p-min-frequency`? Which core metrics parameter should this match, and why do these values need to be the same? (Report your core metrics value here:   5000 )
-It should match the number I rarefied with because both steps standardize sequencing depth across samples. Using the same threshold gives consistency across analyses and allows us to compare the same set of samples. 
+It should match the number I rarefied with because we need to be sure we areusing the same sequencing depth across samples and comparing the same subset of samples in all our analysis, alpha, beta diversity and differential with ANCOMB.  Consistency across analyses. 
 
 4. Why do we filter out samples with low frequency and low abundance ASVs?
-Just as the names imply, filtering out low-frequency samples removes noise from poorly sequenced data, while excluding low-abundance ASVs helps eliminate rare taxa that may just be sequencing artifacts. It will reduce false positives and give better biological interpretations. .
+To avoid unnecessary dilution. Filtering out low-frequency samples removes noise from poorly sequenced data, while excluding low-abundance ASVs helps eliminate rare taxa that may just be sequencing artifacts. It will reduce false positives and give better biological interpretations. .
 
 5. What was the most enriched genus in skin compared to fecal, and what was the most depleted genus in skin compared to fecal (make sure adjusted p is set to less than 0.05)? 
-	most enriched genus in skin compared to fecal samples is Atopostipes, while the most depleted genus in skin relative to fecal samples is Streptococcus
+	The most enriched genus in skin compared to fecal samples is Atopostipes, while the most depleted genus in skin compared to fecal samples is Streptococcus
 
 ## Extra credit~={orange} (3 points)=~ generate a classification model to see how well we can predict cow body site
 
