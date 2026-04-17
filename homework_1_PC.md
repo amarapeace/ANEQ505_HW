@@ -69,7 +69,6 @@ module load qiime2/2024.10_amplicon
 qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path cow_reads.qza
 ```
 
-qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path oxycow_reads.qza
 7.    Demultiplex the reads by submitting a job. Note this may take ~30 mins
 
 a.    Go into your slurm directory using OnDemand. Create a new file named **demux.sh** so you can submit a job that will demultiplex your sequences quicker. Fill in the lines that need editing (denoted by capital letters or hashes) to this demultiplexing command and add that to your new script. 
@@ -100,6 +99,32 @@ qiime demux emp-paired \--m-barcodes-file ../metadata/cow_barcodes.txt \--m-barc
 #visualize the read quality
 qiime demux summarize \--i-data demux_cow.qza \--o-visualization demux_cow.qzv
 ```
+
+
+#!/bin/bash
+#SBATCH --job-name=demux
+#SBATCH --nodes=1
+#SBATCH --ntasks=12
+#SBATCH --partition=amilan
+#SBATCH --time=02:00:00
+#SBATCH --mail-type=ALL
+#SBATCH --output=slurm-%j.out
+#SBATCH --qos=normal
+#SBATCH --mail-user=amara.onwunzo@colostate.edu
+
+module purge
+module load qiime2/2024.10_amplicon
+
+#change the following line if your file path looks different
+cd /scratch/alpine/$USER/cow/demux
+
+#Below is the command you will run to demultiplex the samples.
+
+qiime demux emp-paired \--m-barcodes-file ../metadata/oxycow_barcodes.txt \--m-barcodes-column barcode \--p-rev-comp-mapping-barcodes \--p-rev-comp-barcodes \--i-seqs ../cow_reads.qza \--o-per-sample-sequences demux_oxycow.qza \--o-error-correction-details cow_demux_error.qza
+
+#visualize the read quality
+qiime demux summarize \--i-data demux_oxycow.qza \--o-visualization demux_oxycow.qzv
+
 
 
  Run the script in your slurm directory as a job using: 
