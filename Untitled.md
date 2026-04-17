@@ -57,7 +57,7 @@ Now submit the slurm file.
 25541913 - Failed again 
 25541967 - changed the barcode column name from barcode to Barcode in the slurm file because that's how it appears in the barcode metadata file.
 
-Visualize the qzv file generated from the previous code and determine the trimming and truncation parameters you need for the following code. Here we are trying to remove reads of unreasonable length, typically >
+Visualize the qzv file generated from the previous code and determine the trimming and truncation parameters you need for the following code. Here we are trying to remove reads of unreasonable length, typically > 250bp
 ```
 cd /scratch/alpine/$USER/oxycow/dada2
 
