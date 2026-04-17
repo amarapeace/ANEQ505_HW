@@ -69,7 +69,7 @@ module load qiime2/2024.10_amplicon
 qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path cow_reads.qza
 ```
 
-
+qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path oxycow_reads.qza
 7.    Demultiplex the reads by submitting a job. Note this may take ~30 mins
 
 a.    Go into your slurm directory using OnDemand. Create a new file named **demux.sh** so you can submit a job that will demultiplex your sequences quicker. Fill in the lines that need editing (denoted by capital letters or hashes) to this demultiplexing command and add that to your new script. 
