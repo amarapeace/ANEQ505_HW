@@ -43,23 +43,25 @@ qiime demux emp-paired \--m-barcodes-file ../metadata/oxycow_barcodes.txt \--m-b
 qiime demux summarize \--i-data demux_oxycow.qza \--o-visualization demux_oxycow.qzv
 ```
 
-25541440
 
 ```
  dos2unix demux.sh
  sbatch demux.sh
 ```
 
+25541440 - failed
+25541913 - Failed again 
+25541967 - changed the barcode column name from barcode to Barcode in the slurm file because that's how it appears in the barcode metadata file.
 
 ```
 cd /scratch/alpine/$USER/oxycow/dada2
 
-qiime dada2 denoise-paired \--i-demultiplexed-seqs ../demux/demux_oxycow.qza \--p-trim-left-f 0 \--p-trim-left-r 0 \--p-trunc-len-f 250 \--p-trunc-len-r 250 \--o-representative-sequences cow_seqs_dada2.qza \--o-denoising-stats cow_dada2_stats.qza \--o-table cow_table_dada2.qza
+qiime dada2 denoise-paired \--i-demultiplexed-seqs ../demux/demux_oxycow.qza \--p-trim-left-f 0 \--p-trim-left-r 0 \--p-trunc-len-f 250 \--p-trunc-len-r 250 \--o-representative-sequences oxycow_seqs_dada2.qza \--o-denoising-stats oxycow_dada2_stats.qza \--o-table oxycow_table_dada2.qza
 
 #Visualize the denoising results:
-qiime metadata tabulate \--m-input-file cow_dada2_stats.qza \--o-visualization cow_dada2_stats.qzv
+qiime metadata tabulate \--m-input-file oxycow_dada2_stats.qza \--o-visualization oxycow_dada2_stats.qzv
 
-qiime feature-table summarize \--i-table cow_table_dada2.qza \--m-sample-metadata-file ../metadata/cow_metadata.txt \--o-visualization cow_table_dada2.qzv
+qiime feature-table summarize \--i-table oxycow_table_dada2.qza \--m-sample-metadata-file ../metadata/oxycow_metadata.txt \--o-visualization oxycow_table_dada2.qzv
 
-qiime feature-table tabulate-seqs \--i-data cow_seqs_dada2.qza \--o-visualization cow_seqs_dada2.qzv
+qiime feature-table tabulate-seqs \--i-data oxycow_seqs_dada2.qza \--o-visualization oxycow_seqs_dada2.qzv
 ```
