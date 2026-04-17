@@ -1,7 +1,10 @@
+
+Grab the raw reads from an online repository
 ```
 cp -r /pl/active/courses/2024_summer/maw_2024/raw_reads .
 ```
 
+Launch an interactive session, purge and activate qiime2
 ```
 #launch an interactive session: 
 ainteractive --ntasks=6 --time=02:00:00
@@ -12,11 +15,12 @@ module purge
 module load qiime2/2024.10_amplicon
 ```
 
-
+Import the raw sequence data that are currently fasta.q files into .qza format readable in qiime
 ```
 qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path cow_reads.qza
 ```
 
+Demultiplex the qza formatted raw reads. Now you need that barcode.txt file in addition to the raw reads qza file and you get a demux qza file, which you then convert to a visualizable qzv format. The following code is the content of the slurm file created to run this demultiplexing and conversion.
 ```
 #!/bin/bash
 #SBATCH --job-name=demux
@@ -43,7 +47,7 @@ qiime demux emp-paired \--m-barcodes-file ../metadata/oxycow_barcodes.txt \--m-b
 qiime demux summarize \--i-data demux_oxycow.qza \--o-visualization demux_oxycow.qzv
 ```
 
-
+Now submit the slurm file.
 ```
  dos2unix demux.sh
  sbatch demux.sh
@@ -53,6 +57,7 @@ qiime demux summarize \--i-data demux_oxycow.qza \--o-visualization demux_oxycow
 25541913 - Failed again 
 25541967 - changed the barcode column name from barcode to Barcode in the slurm file because that's how it appears in the barcode metadata file.
 
+Visualize the qzv file generated from the previous code and determine the trimming and truncation parameters you need for the following code. Here we are trying to remove reads of unreasonable length, typically >
 ```
 cd /scratch/alpine/$USER/oxycow/dada2
 
