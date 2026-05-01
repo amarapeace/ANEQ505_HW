@@ -17,7 +17,7 @@ module load qiime2/2024.10_amplicon
 
 Import the raw sequence data that are currently fasta.q files into .qza format readable in qiime
 ```
-qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path cow_reads.qza
+qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path oxycow_reads.qza
 ```
 
 Demultiplex the qza formatted raw reads. Now you need that barcode.txt file in addition to the raw reads qza file and you get a demux qza file, which you then convert to a visualizable qzv format. The following code is the content of the slurm file created to run this demultiplexing and conversion.
