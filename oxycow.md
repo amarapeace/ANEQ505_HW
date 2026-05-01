@@ -19,6 +19,20 @@ Import the raw sequence data that are currently fasta.q files into .qza format r
 ```
 qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--output-path oxycow_reads.qza
 ```
+``
+Debug the barcodes file
+
+```
+awk 'BEGIN{FS=OFS="\t"} 
+NR==1 {print; next} 
+{
+  gsub(/\//, "_", $1)
+  gsub(/:/, "_", $1)
+  gsub(/ /, "", $1)
+  print
+}' oxy_barcodes0.txt > oxy_barcodes.txt
+```
+
 
 Demultiplex the qza formatted raw reads. Now you need that barcode.txt file in addition to the raw reads qza file and you get a demux qza file, which you then convert to a visualizable qzv format. The following code is the content of the slurm file created to run this demultiplexing and conversion.
 ```
