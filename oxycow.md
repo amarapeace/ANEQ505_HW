@@ -130,6 +130,41 @@ qiime feature-table summarize \--i-table oxycow_table_dada2.qza \--m-sample-meta
 qiime feature-table tabulate-seqs \--i-data oxycow_seqs_dada2.qza \--o-visualization oxycow_seqs_dada2.qzv
 ```
 
+To make it a job
+```
+#!/bin/bash
+#SBATCH --job-name=dada2
+#SBATCH --nodes=1
+#SBATCH --ntasks=12
+#SBATCH --partition=amilan
+#SBATCH --time=02:00:00
+#SBATCH --mail-type=ALL
+#SBATCH --output=slurm-%j.out
+#SBATCH --qos=normal
+#SBATCH --mail-user=amara.onwunzo@colostate.edu
+
+module purge
+module load qiime2/2024.10_amplicon
+
+#change the following line if your file path looks different
+cd /scratch/alpine/$USER/oxycow/dada2
+
+#Below is the command you will run to denoise the samples.
+
+qiime dada2 denoise-paired \--i-demultiplexed-seqs ../demux/demux_oxycow.qza \--p-trim-left-f 0 \--p-trim-left-r 0 \--p-trunc-len-f 250 \--p-trunc-len-r 250 \--o-representative-sequences oxycow_seqs_dada2.qza \--o-denoising-stats oxycow_dada2_stats.qza \--o-table oxycow_table_dada2.qza
+
+
+#visualize the read quality
+qiime metadata tabulate \--m-input-file oxycow_dada2_stats.qza \--o-visualization oxycow_dada2_stats.qzv
+```
+
+To submit
+```
+dos2unix dada2.sh
+sbatch dada2.sh
+```
+26560818
+
 Then taxonomy plots
 
 ```
