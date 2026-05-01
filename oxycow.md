@@ -74,6 +74,8 @@ head oxycow_metadata.txt
 
 
 sed -E 's/([0-9]+_[0-9]+_[0-9]+_2025_)([0-9]+)(AM|PM)_00/\1\2_00\3/' oxycow_metadata1.txt > oxycow_metadata.txt
+
+cut -f1 oxycow_metadata.txt | head -20
 ```
 Demultiplex the qza formatted raw reads. Now you need that barcode.txt file in addition to the raw reads qza file and you get a demux qza file, which you then convert to a visualizable qzv format. The following code is the content of the slurm file created to run this demultiplexing and conversion.
 ```
