@@ -130,7 +130,7 @@ qiime feature-table summarize \--i-table oxycow_table_dada2.qza \--m-sample-meta
 qiime feature-table tabulate-seqs \--i-data oxycow_seqs_dada2.qza \--o-visualization oxycow_seqs_dada2.qzv
 ```
 
-
+Then taxonomy plots
 
 ```
 cd /scratch/alpine/$USER/oxycow/taxonomy
