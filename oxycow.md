@@ -21,7 +21,7 @@ qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--outp
 ```
 ``
 Debug the barcodes file
-
+**Sample IDs in oxy_barcode.txt contain "/" and QIIME doesnt like it**
 ```
 awk 'BEGIN{FS=OFS="\t"} 
 NR==1 {print; next} 
@@ -30,7 +30,24 @@ NR==1 {print; next}
   gsub(/:/, "_", $1)
   gsub(/ /, "", $1)
   print
-}' oxy_barcodes0.txt > oxy_barcodes.txt
+}' oxycow_barcodes0.txt > oxycow_barcodes.txt
+
+
+# check the copy
+
+  
+
+cut -f1 oxycow_barcodes.txt | head
+
+cut -f1 oxycow_barcodes.txt | grep '/'
+
+cut -f1 oxycow_barcodes.txt | grep ':'
+
+cut -f1 oxycow_barcodes.txt | grep ' '
+
+  
+
+# Those last three should return nothing.
 ```
 
 
@@ -70,6 +87,8 @@ Now submit the slurm file.
 25541440 - failed
 25541913 - Failed again 
 25541967 - changed the barcode column name from barcode to Barcode in the slurm file because that's how it appears in the barcode metadata file.
+
+26557223
 
 Visualize the qzv file generated from the previous code and determine the trimming and truncation parameters you need for the following code. Here we are trying to remove reads of unreasonable length, typically > 250bp
 ```
