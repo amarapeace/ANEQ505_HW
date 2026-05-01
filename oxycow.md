@@ -23,6 +23,11 @@ qiime tools import \--type EMPPairedEndSequences \--input-path raw_reads \--outp
 Debug the barcodes file
 **Sample IDs in oxy_barcode.txt contain "/" and QIIME doesnt like it**
 ```
+# checking to see if the SampleIDs contain "/"
+
+head oxy_barcodes.txt
+
+# code to make a cleaned copy
 awk 'BEGIN{FS=OFS="\t"} 
 NR==1 {print; next} 
 {
@@ -50,7 +55,26 @@ cut -f1 oxycow_barcodes.txt | grep ' '
 # Those last three should return nothing.
 ```
 
+debug
 
+```
+head oxycow_metadata0.txt
+
+awk 'BEGIN{FS=OFS="\t"}
+NR==1 {print; next}
+{
+  split($1,a,"_")
+  $1 = a[1]"_"a[2]"_"a[3]"_2025_"a[4]"_00"a[5]
+  print
+}' oxycow_metadata0.txt > oxycow_metadata.txt
+
+
+head oxycow_metadata.txt
+
+
+
+sed -E 's/([0-9]+_[0-9]+_[0-9]+_2025_)([0-9]+)(AM|PM)_00/\1\2_00\3/' oxycow_metadata1.txt > oxycow_metadata.txt
+```
 Demultiplex the qza formatted raw reads. Now you need that barcode.txt file in addition to the raw reads qza file and you get a demux qza file, which you then convert to a visualizable qzv format. The following code is the content of the slurm file created to run this demultiplexing and conversion.
 ```
 #!/bin/bash
