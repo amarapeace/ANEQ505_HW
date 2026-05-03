@@ -218,12 +218,12 @@ qiime taxa barplot \--i-table ../dada2/table_nomitochloro_gg2_filtered300.qza \-
 Get the controls
 
 ```
-qiime feature-table filter-samples \--i-table ../dada2/oxycow_table_dada2.qza \--m-metadata-file ../metadata/metadata.txt \--p-where "[sample_type]='control'" \--o-filtered-table ../dada2/table_controls.qza
+qiime feature-table filter-samples \--i-table ../dada2/oxycow_table_dada2.qza \--m-metadata-file ../metadata/oxycow_metadata.txt \--p-where "[Treatment]='ext_control'" \--o-filtered-table ../dada2/table_controls.qza
 ```
 
 Controls taxa baxplot
 
 ```
-qiime taxa barplot \--i-table ../dada2/table_controls.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_controls.qzv
+qiime taxa barplot \--i-table ../dada2/table_controls.qza \--i-taxonomy ../taxonomy/taxonomy_gg2_filtered.qza \--m-metadata-file ../metadata/oxycow_metadata.txt \--o-visualization taxa_barplot_controls.qzv
 ```
 
