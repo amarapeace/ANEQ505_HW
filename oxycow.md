@@ -269,22 +269,24 @@ qiime feature-classifier classify-sklearn \--i-reads ../dada2/oxycow_seqs_dada2.
 Then use it to make the plot 
 ```
 qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--p-exclude mitochondria,chloroplast,sp004296775 \--p-include c__ \--o-filtered-table ../dada2/table_nomitochloro.qza
-
-
-qiime metadata tabulate \--m-input-file taxonomy_gg2_filtered.qza \--o-visualization taxonomy_gg2_filtered.qzv
 ```
 
-visualize
+visualize the plot
 ```
-qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
+qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/oxycow_metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
 
-qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
 ```
 
 Filter out the controls
 ```
 cd ..
 
-qiime feature-table filter-samples \--i-table dada2/table_nomitochloro.qza \--m-metadata-file metadata/metadata.txt \--p-where "NOT [sample_type] IN ('control') " \--o-filtered-table dada2/table_nomitochloro_nocontrol.qza
+qiime feature-table filter-samples \--i-table dada2/table_nomitochloro.qza \--m-metadata-file metadata/oxycow_metadata.txt \--p-where "NOT [Treatment] IN ('ext_control') " \--o-filtered-table dada2/table_nomitochloro_nocontrol.qza
 ```
+Now, run alphararefaction
 
+```
+cd alpha_rarefaction  
+  
+qiime diversity alpha-rarefaction \--i-table ../dada2/table_nomitochloro_nocontrol.qza \--m-metadata-file ../metadata/metadata.txt \--p-max-depth 10000 \--o-visualization alpha_rarefaction_curves.qzv
+```
