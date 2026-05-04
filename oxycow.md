@@ -205,7 +205,7 @@ visualize the output
 qiime metadata tabulate \--m-input-file taxonomy_gg2_filtered.qza \--o-visualization taxonomy_gg2_filtered.qzv
 ```
 
-Filter mitochodria and the rest
+Filter mitochondria and the rest
 ```
 qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2_filtered300.qza \--i-taxonomy taxonomy_gg2_filtered.qza \--p-exclude mitochondria,chloroplast,sp004296775 \--p-include c__ \--o-filtered-table ../dada2/table_nomitochloro_gg2_filtered300.qza
 ```
@@ -262,15 +262,22 @@ qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2.qza \--i-taxonomy
 Not correct, to do this, you need taxonomy_gg2, not filtered. And this means to make a fresh classification file using the unfiltered sequence file 
 
 ```
+cd taxonomy
+
 qiime feature-classifier classify-sklearn \--i-reads ../dada2/oxycow_seqs_dada2.qza \--i-classifier 2024.09.backbone.v4.nb.qza \--o-classification taxonomy_gg2.qza
 ```
 Then use it to make the plot 
 ```
 qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--p-exclude mitochondria,chloroplast,sp004296775 \--p-include c__ \--o-filtered-table ../dada2/table_nomitochloro.qza
+
+
+qiime metadata tabulate \--m-input-file taxonomy_gg2_filtered.qza \--o-visualization taxonomy_gg2_filtered.qzv
 ```
 
 visualize
 ```
+qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
+
 qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
 ```
 
