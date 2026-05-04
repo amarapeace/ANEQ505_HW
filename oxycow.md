@@ -255,5 +255,19 @@ wget --no-check-certificate -P ../tree https://ftp.microbio.me/greengenes_releas
 qiime fragment-insertion sepp \--i-representative-sequences ../dada2/oxycow_seqs_dada2_filtered300.qza \--i-reference-database ../tree/2022.10.backbone.sepp-reference.qza \--o-tree ../tree/tree_gg2.qza \--o-placements ../tree/tree_placements_gg2.qza
 ```
 
+make plots with the full data
+```
+qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2.qza \--i-taxonomy ../taxonomy/taxonomy_gg2_filtered.qza \--p-exclude mitochondria,chloroplast,sp004296775 \--p-include c__ \--o-filtered-table ../dada2/table_nomitochloro.qza
+```
+Not correct, to do this, you need taxonomy_gg2, not filtered. And this means to make a fresh classification file using the unfiltered sequence file 
+
+```
+qiime feature-classifier classify-sklearn \--i-reads ../dada2/oxycow_seqs_dada2.qza \--i-classifier 2024.09.backbone.v4.nb.qza \--o-classification taxonomy_gg2_filtered.qza
+```
+visualize
+```
+qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
+```
+
 Filter out the controls
 
