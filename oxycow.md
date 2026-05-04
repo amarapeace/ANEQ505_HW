@@ -262,12 +262,22 @@ qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2.qza \--i-taxonomy
 Not correct, to do this, you need taxonomy_gg2, not filtered. And this means to make a fresh classification file using the unfiltered sequence file 
 
 ```
-qiime feature-classifier classify-sklearn \--i-reads ../dada2/oxycow_seqs_dada2.qza \--i-classifier 2024.09.backbone.v4.nb.qza \--o-classification taxonomy_gg2_filtered.qza
+qiime feature-classifier classify-sklearn \--i-reads ../dada2/oxycow_seqs_dada2.qza \--i-classifier 2024.09.backbone.v4.nb.qza \--o-classification taxonomy_gg2.qza
 ```
+Then use it to make the plot 
+```
+qiime taxa filter-table \--i-table ../dada2/oxycow_table_dada2.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--p-exclude mitochondria,chloroplast,sp004296775 \--p-include c__ \--o-filtered-table ../dada2/table_nomitochloro.qza
+```
+
 visualize
 ```
 qiime taxa barplot \--i-table ../dada2/table_nomitochloro.qza \--i-taxonomy ../taxonomy/taxonomy_gg2.qza \--m-metadata-file ../metadata/metadata.txt \--o-visualization taxa_barplot_all_samples.qzv
 ```
 
 Filter out the controls
+```
+cd ..
+
+qiime feature-table filter-samples \--i-table dada2/table_nomitochloro.qza \--m-metadata-file metadata/metadata.txt \--p-where "NOT [sample_type] IN ('control') " \--o-filtered-table dada2/table_nomitochloro_nocontrol.qza
+```
 
