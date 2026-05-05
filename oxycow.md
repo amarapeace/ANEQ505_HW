@@ -291,16 +291,27 @@ cd alpha_rarefaction
   
 qiime diversity alpha-rarefaction \--i-table ../dada2/table_nomitochloro_nocontrol.qza \--m-metadata-file ../metadata/oxycow_metadata_splitted.txt \--p-max-depth 10000 \--o-visualization alpha_rarefaction_curves.qzv
 ```
-
+run core metrics
 ```
 qiime diversity core-metrics-phylogenetic \--i-table dada2/table_nomitochloro_nocontrol.qza \--i-phylogeny tree/tree_gg2.qza \--m-metadata-file metadata/oxycow_metadata.txt \--p-sampling-depth 1500 \--output-dir core-metrics-results
 ```
-ttt
+observed features
 ```
 qiime diversity alpha-group-significance \--i-alpha-diversity core-metrics-results/observed_features_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/observed_features_statistics.qzv
 ```
 
-ttt
+shannon statistics
 ```
 qiime diversity alpha-group-significance \--i-alpha-diversity core-metrics-results/shannon_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/shannon_statistics.qzv
+```
+
+faiths richness
+```
+qiime diversity alpha-group-significance \--i-alpha-diversity core-metrics-results/faith_pd_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/faiths_pd_statistics.qzv
+```
+
+alpha-corelation
+
+```
+qiime diversity alpha-correlation \--i-alpha-diversity core-metrics-results/faith_pd_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/faith_pd_correlation_statistics.qzv
 ```
