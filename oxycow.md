@@ -293,5 +293,14 @@ qiime diversity alpha-rarefaction \--i-table ../dada2/table_nomitochloro_nocontr
 ```
 
 ```
-qiime diversity core-metrics-phylogenetic \--i-table dada2/table_nomitochloro_nocontrol.qza \--i-phylogeny tree/tree_gg2.qza \--m-metadata-file metadata/oxycow_metadata_splitted.txt \--p-sampling-depth 1500 \--output-dir core-metrics-results
+qiime diversity core-metrics-phylogenetic \--i-table dada2/table_nomitochloro_nocontrol.qza \--i-phylogeny tree/tree_gg2.qza \--m-metadata-file metadata/oxycow_metadata.txt \--p-sampling-depth 1500 \--output-dir core-metrics-results
+```
+ttt
+```
+qiime diversity alpha-group-significance \--i-alpha-diversity core-metrics-results/observed_features_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/observed_features_statistics.qzv
+```
+
+ttt
+```
+qiime diversity alpha-group-significance \--i-alpha-diversity core-metrics-results/shannon_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/shannon_statistics.qzv
 ```
