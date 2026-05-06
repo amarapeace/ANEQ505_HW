@@ -334,6 +334,6 @@ make volatility plot
 ```
 cd longitudinal
 
-qiime longitudinal volatility \--m-metadata-file ../metadata/metadata.txt \--m-metadata-file ../core-metrics-results/weighted_unifrac_pcoa_results.qza \--p-state-column add_0c \--p-individual-id-column host_subject_id \--p-default-group-column 'sample_type' \--p-default-metric 'Axis 2' \--o-visualization pc_vol_sample_type.qzv
+qiime longitudinal volatility \--m-metadata-file ../metadata/oxycow_metadata.txt \--m-metadata-file ../core-metrics-results/weighted_unifrac_pcoa_results.qza \--p-state-column add_0c \--p-individual-id-column sampleID \--p-default-group-column 'GROUP' \--p-default-metric 'Axis 2' \--o-visualization pc_vol_sample_type.qzv
 
 ```
