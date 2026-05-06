@@ -315,3 +315,25 @@ alpha-corelation
 ```
 qiime diversity alpha-correlation \--i-alpha-diversity core-metrics-results/faith_pd_vector.qza \--m-metadata-file metadata/oxycow_metadata.txt \--o-visualization core-metrics-results/faith_pd_correlation_statistics.qzv
 ```
+
+unweighted unifrac significance
+
+```
+qiime diversity beta-group-significance \--i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza \--m-metadata-file metadata/oxycow_metadata.txt \--m-metadata-column GROUP \--o-visualization core-metrics-results/unweighted_unifrac_distance_matrix.qzv
+```
+
+bray curtis significance
+
+```
+qiime diversity beta-group-significance \--i-distance-matrix core-metrics-results/bray_curtis_distance_matrix.qza \--m-metadata-file metadata/oxycow_metadata.txt \--m-metadata-column GROUP \--o-visualization core-metrics-results/bray_curtis_distance_matrix.qzv
+```
+
+longitudinal analysis
+make volatility plot
+
+```
+cd longitudinal
+
+qiime longitudinal volatility \--m-metadata-file ../metadata/metadata.txt \--m-metadata-file ../core-metrics-results/weighted_unifrac_pcoa_results.qza \--p-state-column add_0c \--p-individual-id-column host_subject_id \--p-default-group-column 'sample_type' \--p-default-metric 'Axis 2' \--o-visualization pc_vol_sample_type.qzv
+
+```
