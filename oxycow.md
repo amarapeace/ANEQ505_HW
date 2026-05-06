@@ -289,7 +289,7 @@ Now, run alpha-rarefaction
 ```
 cd alpha_rarefaction  
   
-qiime diversity alpha-rarefaction \--i-table ../dada2/table_nomitochloro_nocontrol.qza \--m-metadata-file ../metadata/oxycow_metadata_splitted.txt \--p-max-depth 10000 \--o-visualization alpha_rarefaction_curves.qzv
+qiime diversity alpha-rarefaction \--i-table ../dada2/table_nomitochloro_nocontrol.qza \--m-metadata-file ../metadata/oxycow_metadata.txt \--p-max-depth 10000 \--o-visualization alpha_rarefaction_curves.qzv
 ```
 run core metrics
 ```
